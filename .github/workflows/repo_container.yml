@@ -12,7 +12,7 @@ jobs:
       # 這裡將 repo checkout 後，檔案會帶往下面的 steps
       - uses: actions/checkout@v1
       - name: display file list
-        run: ls -al
+        run: ls -al && chmod -R 777 ./script.sh
       # 執行 repo 中的 script.sh 檔案
       - name: run a script
         uses: docker://alpine
