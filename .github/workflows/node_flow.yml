@@ -20,10 +20,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.13.x
-          cache-dependency-path: '**/package-lock.json'
       
       - name: Install
-        run: npm ci
+        run: npm install
       
       - name: Build static files
         run: npm run build
