@@ -1,0 +1,25 @@
+name: Container
+on:
+  push:
+    branches:
+      - job_container
+
+jobs:
+  node-docker:
+    # 還是需要指定 ubuntu 作為 container runtime 運行的平台
+    runs-on: ubuntu-latest
+    # 定義 job 所要使用的 container image
+    container: 
+      image: node:10.23.0-alpine3.11
+    steps:
+      # 顯示 Alpine Linux v3.11
+      - name: display node version
+        run: |
+          node -v
+          cat /etc/os-release
+      # 顯示 Alpine Linux v3.11
+      # 表示 job 中的所有 step 都會使用相同的 container 環境
+      - name: display OS
+        run: |
+          uname -r
+          cat /etc/os-release
